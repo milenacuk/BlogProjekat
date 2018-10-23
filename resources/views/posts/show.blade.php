@@ -29,6 +29,22 @@
                 @endforeach
                 </ul>
             @endif   
+            <h4>Post a Comment</h4>
+            <form method = 'post' action = '/posts/{{$post->id}}/comments'>
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label>Author</label>
+                    <input name = 'author' type="text" class="form-control"  placeholder="Enter author">
+                    @include('layouts.partials.error-message', ['field' => 'author'])
+                </div>
+                <div class="form-group">
+                    <label>Text</label>
+                    <textarea name = 'text' type="text" class="form-control"  placeholder="Enter text"></textarea>
+                    @include('layouts.partials.error-message', ['field' => 'text'])
+
+                </div>              
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
           </div><!-- /.blog-post -->
   
 @endsection

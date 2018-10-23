@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+Use App\Comment;
 
 class PostsController extends Controller
 {
@@ -22,11 +23,8 @@ class PostsController extends Controller
     }
     public function store(){
         $this->validate(
-            request(),[
-                'title'=>'required',
-                'body'=>'required | min:25',
-                'published'=>'required'
-            ]
+            request(),
+            Post::VALIDATION_RULES
             );
          Post::create(request()->all());
         return redirect('/posts');

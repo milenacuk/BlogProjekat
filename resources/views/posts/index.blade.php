@@ -5,8 +5,10 @@ All posts
 @endsection
 
 @section('body')
-    
-    <h1>Posts</h1>
+        <a href="/posts/create">
+            <h2>Create post</h2>
+        </a>
+
     <ul>
 
     @foreach($posts as $post)

@@ -18,12 +18,12 @@ Route::get('/','LoginController@index')->name('login');
 Route::post('/','LoginController@login');
 });
 
-Route::group(['prefix'=> 'posts','middleware' => ['auth']],function(){
+Route::prefix('register')->group(function(){
     Route::get('/', 'RegisterController@create');
     Route::post('/', 'RegisterController@store');
 });
 
-Route::prefix('posts')->group(function(){
+Route::group( ['prefix'=> 'posts','middleware' => ['auth']], function(){
     Route::get('/create', 'PostsController@create');
     Route::post('/', 'PostsController@store');
     Route::get('/{id}','PostsController@show');

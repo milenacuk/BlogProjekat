@@ -15,10 +15,12 @@ All posts
     
     <li>
         <div class="blog-post"> 
+        <p>Written by: {{$post->user->name}}</p> 
             <h2 class="blog-post-title">
                 <a href="/posts/{{$post->id}}">
                     {{$post->title}}
-                </a>
+                </a>                
+                              
             </h2>
             <p> {{$post->body}}</p>           
           </div><!-- /.blog-post -->

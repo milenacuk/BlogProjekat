@@ -12,6 +12,7 @@
     </h2>
 
     <div class="blog-post"> 
+    <p>Written by: {{$post->user->name}}</p> 
             <h2 class="blog-post-title">
                 
                     {{$post->title}}

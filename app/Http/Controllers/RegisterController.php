@@ -10,6 +10,7 @@ class RegisterController extends Controller
 
     public function __construct(){
         $this->middleware('guest');
+        $this->middleware('age',['only' => 'store']);
     }
     public function create(){
         return view('register.create');
@@ -29,6 +30,8 @@ class RegisterController extends Controller
         
         //$user = User::create(request()->all());
         auth()->login($user);
+        
+        session()->flash('message','Hvala sto ste se registrovali!');
 
         return redirect('/posts');
     }

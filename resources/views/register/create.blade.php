@@ -23,6 +23,11 @@ Create title
     <input name = 'password' type="password" class="form-control" id="password" placeholder="Enter password">
       @include('layouts.partials.error-message', ['field' => 'password'])
   </div>
+  <div class="form-group">
+    <label>Age</label>
+    <input name = 'age' type="text" class="form-control" id="age" placeholder="Enter age">
+      @include('layouts.partials.error-message', ['field' => 'age'])
+  </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

@@ -23,6 +23,7 @@
     <input name = 'published'  type="checkbox" checked = 'true' value ='1' class="form-check-input" id="publish">
     <label class="form-check-label" for="exampleCheck1">Publish this post?</label>
   </div>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

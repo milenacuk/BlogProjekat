@@ -12,12 +12,22 @@
     </h2>
 
     <div class="blog-post"> 
+    <p> <!--dodajem tagove na postove-->
+            <ul>
+                @foreach($post->tags as $tag)
+                    <li>
+                        <a href="/posts/tags/{{$tag->name}}">{{ $tag->name }}</a>
+                    </li>
+                @endforeach
+            </ul>
+    </p>
     <p>Written by: {{$post->user->name}}</p> 
+
             <h2 class="blog-post-title">
                 
                     {{$post->title}}
                 
-            </h2>
+            </h2>           
             <p> {{$post->body}}</p>  
             @if(count($post->comments))   
                 <h4>Comments</h4>

@@ -24,6 +24,16 @@
     <label class="form-check-label" for="exampleCheck1">Publish this post?</label>
   </div>
   
+  <!-- pravimo check box kad se kreira post da se odmah oznaci tag-->
+<div class = 'form-group'>
+<label >Select tags</label> <br>
+@foreach($tags as $tag)
+  <input type="checkbox" name = 'tags[]' value = '{{ $tag->id }}'>
+  {{ $tag->name }} <br>
+@endforeach
+@include('layouts.partials.error-message', ['field' => 'tags'])
+</div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

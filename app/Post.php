@@ -15,7 +15,8 @@ class Post extends Model
    const VALIDATION_RULES = [
     'title'=>'required',
     'body'=>'required | min:25',
-    'published'=>'required'
+    'published'=>'required',
+    'tags' => 'required |array'  // stavljamo da je tag obavezan i da je niz
    ];
    public static function getPublishedPosts(){
        return Post::where('published', true); //zbog paginacije sam ovde izbrisala get

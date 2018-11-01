@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function index(){
         //dd(auth()->user());
-        $posts = Post::getPublishedPosts();
+        $posts = Post::getPublishedPosts()->paginate(10); //stavili sa ovim paginate da nam na strani bude 10 postova
         return view('posts.index', ['posts'=>$posts]);
     }
     public function show($id){

@@ -18,7 +18,7 @@ class Post extends Model
     'published'=>'required'
    ];
    public static function getPublishedPosts(){
-       return Post::where('published', true)->get();
+       return Post::where('published', true); //zbog paginacije sam ovde izbrisala get
    }
    public function user(){
        return $this->belongsTo(User::class, 'author_id');

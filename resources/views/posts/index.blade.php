@@ -29,4 +29,8 @@ All posts
         <!--<li><a href="/posts/{{$post->id}}">{{$post->title}}</a></li>-->
     @endforeach
     </ul>
+    <nav class = 'blog-pagination'>
+    <a class = 'btn btn-outline-{{ $posts->currentPage() == 1 ? 'secondary disabled' : 'primary' }}' href="{{ $posts->previousPageUrl() }}">Older</a>
+    <a class = 'btn btn-outline-{{ $posts->hasMorePages() ? 'primary' : 'secondary disabled' }}'  href="{{ $posts->nextPageUrl() }}">Next</a>   
+    </nav> <!-- dodala sam formu za paginaciju-->
 @endsection

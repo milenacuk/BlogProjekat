@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/','PostsController@index');
+Route::get('/posts','PostsController@index');
+
 Route::get('/logout','LoginController@logout');
 
 Route::prefix('login')->group(function(){
@@ -27,7 +28,7 @@ Route::group( ['prefix'=> 'posts','middleware' => ['auth']], function(){
     Route::get('/create', 'PostsController@create');
     Route::post('/', 'PostsController@store');
     Route::get('/{id}','PostsController@show');
-    Route::get('/','PostsController@index');
+    //Route::get('/','PostsController@index');  //izvadili smo ovu rutu jer treba svi da vide index stranu,zbog testiranja
     
     Route::prefix('/{postId}/comments')->group(function(){
         Route::post('/', 'CommentsController@store');
@@ -39,7 +40,5 @@ Route::get('/users/{id}','UsersController@show');
 
 Route::get('posts/tags/{tag}','TagsController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 

@@ -39,7 +39,7 @@ class PostsTest extends TestCase
         $response->assertStatus(200); 
        
     }
-    public function testShowInvalid(){
+    public function testShowInvalid(){    ///ovde ispitujem da li je greska da ima user sa 9999999 id
         $user = factory(User::class)->create();       
         $post = factory(Post::class)->create(['author_id' => $user->id]);
         $response = $this->actingAs($user)->get('/posts/' . 999999999);

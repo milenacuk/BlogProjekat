@@ -18,7 +18,7 @@ class MailTest extends TestCase
      *
      * @return void
      */
-    public function testCommentReceivedValid()
+    public function testCommentReceivedValid()  //proverava da li je mail poslat
     {
         $user = factory(User::class)->create();
         $post = factory(Post::class)->create(['author_id' => $user->id]);
@@ -32,5 +32,20 @@ class MailTest extends TestCase
         Mail::assertSent(CommentReceived::class, function($mail) use ($post) {
             return $mail->post->id === $post->id;
         });
-    }//proverava da li je mail poslat 
+    } 
+
+    public function testCommentReceivedInvalid(){   //proverava da li je mail invalid,da nije poslat
+        $user = factory(User::class)->create();
+        $post = factory(Post::class)->create(['author_id' => $user->id]);
+
+        Mail::fake();
+
+        $this->actingAs($user)->post('/posts/' . $post->id . '/comments',
+        ['text' => 'this is ', 'author' => 'some']
+        );
+
+        Mail::assertNotSent(CommentReceived::class, function($mail) use ($post) {
+            return $mail->post->id === $post->id;
+        });
+    }
 }
